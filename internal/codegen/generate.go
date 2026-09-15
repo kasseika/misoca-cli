@@ -220,7 +220,7 @@ func itemGoType(p property) string {
 	case "integer":
 		return "int"
 	case "number":
-		return "float64"
+		return "Number"
 	case "boolean":
 		return "bool"
 	case "string":
@@ -253,9 +253,9 @@ func fieldGoType(p property, pointerForScalars bool) string {
 		return "int"
 	case "number":
 		if pointerForScalars {
-			return "*float64"
+			return "*Number"
 		}
-		return "float64"
+		return "Number"
 	case "boolean":
 		if pointerForScalars {
 			return "*bool"

@@ -19,7 +19,7 @@ func dealingItemTable(items []misoca.DealingItem) *output.Table {
 		}
 		unitPrice := ""
 		if item.UnitPrice != nil {
-			unitPrice = strconv.FormatFloat(*item.UnitPrice, 'f', -1, 64)
+			unitPrice = strconv.FormatFloat(item.UnitPrice.Float64(), 'f', -1, 64)
 		}
 		table.Rows = append(table.Rows, []string{id, derefString(item.Name), unitPrice, derefString(item.UnitName)})
 	}
@@ -112,7 +112,7 @@ func (a *App) newItemCmd(flags *globalFlags) *cobra.Command {
 				req.UnitName = unitName
 			}
 			if cmd.Flags().Changed("unit-price") {
-				req.UnitPrice = unitPrice
+				req.UnitPrice = misoca.Number(unitPrice)
 			}
 			client, err := a.NewClient(flags.profile)
 			if err != nil {

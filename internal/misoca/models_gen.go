@@ -133,7 +133,7 @@ type DealingItem struct {
 	// 単位
 	UnitName *string `json:"unit_name,omitempty"`
 	// 単価
-	UnitPrice *float64 `json:"unit_price,omitempty"`
+	UnitPrice *Number `json:"unit_price,omitempty"`
 	// 更新日
 	UpdatedAt *string `json:"updated_at,omitempty"`
 }
@@ -225,15 +225,15 @@ type DeliverySlipDocumentBody struct {
 	// 自社郵便番号
 	SenderZipCode *string `json:"sender_zip_code,omitempty"`
 	// 消費税
-	Tax *float64 `json:"tax,omitempty"`
+	Tax *Number `json:"tax,omitempty"`
 	// 消費税設定('INCLUDE': 税込表示, 'EXCLUDE': 税別表示, 'EXEMPT': 税込表示(免税), 'NONENTRY': 税別表示(請求時に計算))
 	TaxOption *string `json:"tax_option,omitempty"`
 	// 消費税端数処理('CEIL': 切り上げ, 'FLOOR': 切り捨て, 'ROUND': 四捨五入)
 	TaxRoundingPolicy *string `json:"tax_rounding_policy,omitempty"`
 	// 小計
-	TotalAmount *float64 `json:"total_amount,omitempty"`
+	TotalAmount *Number `json:"total_amount,omitempty"`
 	// 合計
-	TotalAmountIncludingTax *float64 `json:"total_amount_including_tax,omitempty"`
+	TotalAmountIncludingTax *Number `json:"total_amount_including_tax,omitempty"`
 }
 
 // DeliverySlipDocumentItem は  を表す構造体です。
@@ -241,15 +241,15 @@ type DeliverySlipDocumentItem struct {
 	// 品目
 	Name *string `json:"name,omitempty"`
 	// 金額
-	Price *float64 `json:"price,omitempty"`
+	Price *Number `json:"price,omitempty"`
 	// 数量
-	Quantity *float64 `json:"quantity,omitempty"`
+	Quantity *Number `json:"quantity,omitempty"`
 	// 消費税区分('STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%, 'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)
 	TaxType *string `json:"tax_type,omitempty"`
 	// 単位
 	UnitName *string `json:"unit_name,omitempty"`
 	// 単価
-	UnitPrice *float64 `json:"unit_price,omitempty"`
+	UnitPrice *Number `json:"unit_price,omitempty"`
 }
 
 // Distribution は ApiEntity_Distribution model を表す構造体です。
@@ -366,15 +366,15 @@ type EstimateBody struct {
 	// 自社郵便番号
 	SenderZipCode *string `json:"sender_zip_code,omitempty"`
 	// 消費税
-	Tax *float64 `json:"tax,omitempty"`
+	Tax *Number `json:"tax,omitempty"`
 	// 消費税設定('INCLUDE': 税込表示, 'EXCLUDE': 税別表示, 'EXEMPT': 税込表示(免税))
 	TaxOption *string `json:"tax_option,omitempty"`
 	// 消費税端数処理('CEIL': 切り上げ, 'FLOOR': 切り捨て, 'ROUND': 四捨五入)
 	TaxRoundingPolicy *string `json:"tax_rounding_policy,omitempty"`
 	// 小計
-	TotalAmount *float64 `json:"total_amount,omitempty"`
+	TotalAmount *Number `json:"total_amount,omitempty"`
 	// 合計
-	TotalAmountIncludingTax *float64 `json:"total_amount_including_tax,omitempty"`
+	TotalAmountIncludingTax *Number `json:"total_amount_including_tax,omitempty"`
 }
 
 // EstimateItem は  を表す構造体です。
@@ -382,15 +382,15 @@ type EstimateItem struct {
 	// 品目
 	Name *string `json:"name,omitempty"`
 	// 金額
-	Price *float64 `json:"price,omitempty"`
+	Price *Number `json:"price,omitempty"`
 	// 数量
-	Quantity *float64 `json:"quantity,omitempty"`
+	Quantity *Number `json:"quantity,omitempty"`
 	// 消費税区分('STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%, 'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)
 	TaxType *string `json:"tax_type,omitempty"`
 	// 単位
 	UnitName *string `json:"unit_name,omitempty"`
 	// 単価
-	UnitPrice *float64 `json:"unit_price,omitempty"`
+	UnitPrice *Number `json:"unit_price,omitempty"`
 }
 
 // Invoice は ApiEntity_Invoice model を表す構造体です。
@@ -453,7 +453,7 @@ type InvoiceBankAccount struct {
 // InvoiceBody は  を表す構造体です。
 type InvoiceBody struct {
 	// 源泉徴収税額
-	AmountOfWithholdingTax *float64             `json:"amount_of_withholding_tax,omitempty"`
+	AmountOfWithholdingTax *Number              `json:"amount_of_withholding_tax,omitempty"`
 	BankAccounts           []InvoiceBankAccount `json:"bank_accounts,omitempty"`
 	// 備考
 	Notes *string `json:"notes,omitempty"`
@@ -498,15 +498,15 @@ type InvoiceBody struct {
 	// 自社郵便番号
 	SenderZipCode *string `json:"sender_zip_code,omitempty"`
 	// 消費税
-	Tax *float64 `json:"tax,omitempty"`
+	Tax *Number `json:"tax,omitempty"`
 	// 消費税設定('INCLUDE': 税込表示, 'EXCLUDE': 税別表示, 'EXEMPT': 税込表示(免税))
 	TaxOption *string `json:"tax_option,omitempty"`
 	// 消費税端数処理('CEIL': 切り上げ, 'FLOOR': 切り捨て, 'ROUND': 四捨五入)
 	TaxRoundingPolicy *string `json:"tax_rounding_policy,omitempty"`
 	// 小計
-	TotalAmount *float64 `json:"total_amount,omitempty"`
+	TotalAmount *Number `json:"total_amount,omitempty"`
 	// 合計
-	TotalAmountIncludingTax *float64 `json:"total_amount_including_tax,omitempty"`
+	TotalAmountIncludingTax *Number `json:"total_amount_including_tax,omitempty"`
 	// 源泉徴収税設定('None': なし, 'JapaneseStandard': あり(復興税なし), 'JapaneseStandardWithReconstructionTax': あり(復興税あり))
 	WithholdingTaxType *string `json:"withholding_tax_type,omitempty"`
 }
@@ -518,9 +518,9 @@ type InvoiceItem struct {
 	// 品目
 	Name *string `json:"name,omitempty"`
 	// 金額
-	Price *float64 `json:"price,omitempty"`
+	Price *Number `json:"price,omitempty"`
 	// 数量
-	Quantity *float64 `json:"quantity,omitempty"`
+	Quantity *Number `json:"quantity,omitempty"`
 	// 消費税区分('STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%, 'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)
 	TaxType *string `json:"tax_type,omitempty"`
 	// 納品日
@@ -528,7 +528,7 @@ type InvoiceItem struct {
 	// 単位
 	UnitName *string `json:"unit_name,omitempty"`
 	// 単価
-	UnitPrice *float64 `json:"unit_price,omitempty"`
+	UnitPrice *Number `json:"unit_price,omitempty"`
 }
 
 // InvoicePaymentHistory は  を表す構造体です。
@@ -616,7 +616,7 @@ type CreateDealingItemRequest struct {
 	// 単位
 	UnitName string `json:"unit_name,omitempty"`
 	// 単価
-	UnitPrice float64 `json:"unit_price,omitempty"`
+	UnitPrice Number `json:"unit_price,omitempty"`
 }
 
 // CreateDeliverySlipRequest は 納品書を作成します を表す構造体です。

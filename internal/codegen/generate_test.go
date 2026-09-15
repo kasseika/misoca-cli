@@ -55,6 +55,8 @@ type InvoiceItem struct {
 	Name *string ` + "`json:\"name,omitempty\"`" + `
 	// 単価
 	UnitPrice *int ` + "`json:\"unit_price,omitempty\"`" + `
+	// 数量
+	Quantity *Number ` + "`json:\"quantity,omitempty\"`" + `
 }
 
 // CreateInvoiceRequest は postInvoice model を表す構造体です。

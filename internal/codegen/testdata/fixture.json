@@ -67,6 +67,11 @@
           "type": "integer",
           "format": "int32",
           "description": "単価"
+        },
+        "quantity": {
+          "type": "number",
+          "format": "double",
+          "description": "数量"
         }
       }
     },
