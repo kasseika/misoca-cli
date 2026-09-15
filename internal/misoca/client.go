@@ -98,6 +98,20 @@ func (c *Client) doJSON(ctx context.Context, method, path string, query url.Valu
 	return resp.Header.Get("Link"), nil
 }
 
+// doRaw は PDF・画像など JSON 以外のバイナリレスポンスを受け取る API 呼び出しを実行します。
+func (c *Client) doRaw(ctx context.Context, method, path string, query url.Values) ([]byte, error) {
+	resp, respBody, err := c.do(ctx, method, path, query, nil, "")
+	if err != nil {
+		return nil, err
+	}
+	defer func() { _ = resp.Body.Close() }()
+
+	if resp.StatusCode >= http.StatusBadRequest {
+		return nil, newAPIError(resp.StatusCode, respBody)
+	}
+	return respBody, nil
+}
+
 // do は共通のリクエスト構築・送出・ボディ読み込みを行います。
 func (c *Client) do(ctx context.Context, method, path string, query url.Values, body io.Reader, contentType string) (*http.Response, []byte, error) {
 	token, err := c.tokens.Token(ctx)
