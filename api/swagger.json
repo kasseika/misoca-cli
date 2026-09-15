@@ -1,0 +1,3614 @@
+{
+  "basePath": "/api/v3",
+  "definitions": {
+    "ApiEntity_Contact": {
+      "description": "ApiEntity_Contact model",
+      "properties": {
+        "contact_group_id": {
+          "description": "取引先を識別する一意なID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "corporate_number": {
+          "description": "法人番号",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "作成日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "favorited": {
+          "description": "お気に入りかどうか（お気に入りの場合true）",
+          "type": "boolean"
+        },
+        "favorited_at": {
+          "description": "お気に入りにした日時",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "description": "送り先を識別する一意なID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "lock_version": {
+          "description": "楽観ロックバージョン",
+          "format": "int32",
+          "type": "integer"
+        },
+        "memo": {
+          "description": "覚え書きメモ欄",
+          "type": "string"
+        },
+        "recipient_address1": {
+          "description": "送付先住所1",
+          "type": "string"
+        },
+        "recipient_address2": {
+          "description": "送付先住所2",
+          "type": "string"
+        },
+        "recipient_code": {
+          "description": "管理コード",
+          "type": "string"
+        },
+        "recipient_fax_no": {
+          "description": "FAX番号",
+          "type": "string"
+        },
+        "recipient_mail_address": {
+          "description": "メールアドレス",
+          "type": "string"
+        },
+        "recipient_mail_address_cc": {
+          "description": "メールアドレス(CC)",
+          "type": "string"
+        },
+        "recipient_name": {
+          "description": "名前",
+          "type": "string"
+        },
+        "recipient_name1": {
+          "description": "送付先名称1",
+          "type": "string"
+        },
+        "recipient_name2": {
+          "description": "送付先名称2",
+          "type": "string"
+        },
+        "recipient_name3": {
+          "description": "送付先名称3",
+          "type": "string"
+        },
+        "recipient_name4": {
+          "description": "送付先名称4",
+          "type": "string"
+        },
+        "recipient_notes": {
+          "description": "担当者",
+          "type": "string"
+        },
+        "recipient_ruby": {
+          "description": "ふりがな",
+          "type": "string"
+        },
+        "recipient_tel_no": {
+          "description": "電話番号",
+          "type": "string"
+        },
+        "recipient_title": {
+          "description": "敬称",
+          "type": "string"
+        },
+        "recipient_title2": {
+          "description": "送付先敬称",
+          "type": "string"
+        },
+        "recipient_zip_code": {
+          "description": "送付先郵便番号",
+          "type": "string"
+        },
+        "tax_option": {
+          "description": "消費税設定('USE_SENDER': 自社情報の設定, 'INCLUDE': 税込表示, 'EXCLUDE': 税別表示,\n              'EXEMPT': 税込表示(免税), 'NONENTRY': 税別表示(納品書のみ請求時に計算))",
+          "type": "string"
+        },
+        "trashed": {
+          "description": "非表示にされたかどうか(非表示にされている場合true)",
+          "type": "boolean"
+        },
+        "trashed_at": {
+          "description": "非表示にされた日時",
+          "format": "date-time",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "更新日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "ユーザID",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "contact_group_id",
+        "user_id",
+        "recipient_code",
+        "recipient_name",
+        "recipient_ruby",
+        "recipient_title",
+        "recipient_notes",
+        "recipient_mail_address",
+        "recipient_mail_address_cc",
+        "recipient_tel_no",
+        "recipient_fax_no",
+        "memo",
+        "favorited",
+        "favorited_at",
+        "trashed",
+        "trashed_at",
+        "recipient_zip_code",
+        "recipient_address1",
+        "recipient_address2",
+        "recipient_name1",
+        "recipient_name2",
+        "recipient_name3",
+        "recipient_name4",
+        "recipient_title2",
+        "tax_option",
+        "corporate_number",
+        "lock_version",
+        "created_at",
+        "updated_at"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_ContactGroup": {
+      "description": "ApiEntity_ContactGroup model",
+      "properties": {
+        "bank_accounts": {
+          "items": {
+            "$ref": "#/definitions/ApiEntity_Invoice_BankAccount"
+          },
+          "type": "array"
+        },
+        "corporate_number": {
+          "description": "法人番号",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "作成日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "description": "取引先を識別する一意なID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "lock_version": {
+          "description": "楽観ロックバージョン",
+          "format": "int32",
+          "type": "integer"
+        },
+        "mail_settings": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApiEntity_ContactGroup_MailSettings"
+            }
+          ],
+          "description": "メールの件名"
+        },
+        "peppol_id": {
+          "description": "Peppol ID",
+          "type": "string"
+        },
+        "recipient_name": {
+          "description": "名前",
+          "type": "string"
+        },
+        "recipient_ruby": {
+          "description": "ふりがな",
+          "type": "string"
+        },
+        "recipient_title": {
+          "description": "敬称",
+          "type": "string"
+        },
+        "tax_option": {
+          "description": "消費税設定('USE_SENDER': 自社情報の設定, 'INCLUDE': 税込表示, 'EXCLUDE': 税別表示,\n              'EXEMPT': 税込表示(免税), 'NONENTRY': 税別表示(納品書のみ請求時に計算))",
+          "type": "string"
+        },
+        "trashed": {
+          "description": "非表示にされたかどうか(非表示にされている場合true)",
+          "type": "boolean"
+        },
+        "trashed_at": {
+          "description": "非表示にされた日時",
+          "format": "date-time",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "更新日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "ユーザID",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "user_id",
+        "recipient_name",
+        "recipient_ruby",
+        "recipient_title",
+        "mail_settings",
+        "trashed",
+        "trashed_at",
+        "tax_option",
+        "corporate_number",
+        "lock_version",
+        "created_at",
+        "updated_at",
+        "bank_accounts"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_ContactGroup_MailSettings": {
+      "properties": {
+        "subjects": {
+          "$ref": "#/definitions/ApiEntity_ContactGroup_MailSettings_Subjects"
+        }
+      },
+      "required": [
+        "subjects"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_ContactGroup_MailSettings_Subjects": {
+      "properties": {
+        "delivery_slip": {
+          "description": "納品書",
+          "type": "string"
+        },
+        "estimate": {
+          "description": "見積書",
+          "type": "string"
+        },
+        "invoice": {
+          "description": "請求書",
+          "type": "string"
+        },
+        "simplified_invoice": {
+          "description": "領収書",
+          "type": "string"
+        }
+      },
+      "required": [
+        "estimate",
+        "delivery_slip",
+        "invoice",
+        "simplified_invoice"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_DealingItem": {
+      "description": "ApiEntity_DealingItem model",
+      "properties": {
+        "created_at": {
+          "description": "作成日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "excluding_withholding_tax": {
+          "description": "源泉徴収税フラグ",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "品目を識別する一意なID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "lock_version": {
+          "description": "楽観ロックバージョン",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "品番・品名",
+          "type": "string"
+        },
+        "tax_type": {
+          "description": "消費税区分('USE_SENDER': 自社情報の設定, 'STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%, 'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)",
+          "type": "string"
+        },
+        "unit_name": {
+          "description": "単位",
+          "type": "string"
+        },
+        "unit_price": {
+          "description": "単価",
+          "format": "double",
+          "type": "number"
+        },
+        "updated_at": {
+          "description": "更新日",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "unit_price",
+        "unit_name",
+        "excluding_withholding_tax",
+        "tax_type",
+        "lock_version",
+        "created_at",
+        "updated_at"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_DeliverySlip": {
+      "description": "ApiEntity_DeliverySlip model",
+      "properties": {
+        "archived_at": {
+          "description": "処理済みに移動した日時",
+          "format": "date-time",
+          "type": "string"
+        },
+        "body": {
+          "$ref": "#/definitions/ApiEntity_DeliverySlip_DocumentBody"
+        },
+        "contact_id": {
+          "description": "送り先を識別する一意なID。取引先を削除した場合もIDは残ります",
+          "format": "int32",
+          "type": "integer"
+        },
+        "created_at": {
+          "description": "作成日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "delivery_date": {
+          "description": "納品日",
+          "format": "date",
+          "type": "string"
+        },
+        "delivery_slip_number": {
+          "description": "納品書番号",
+          "type": "string"
+        },
+        "delivery_slip_status": {
+          "description": "発行ステータス",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "id": {
+          "description": "納品書を識別する一意なID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "issue_date": {
+          "description": "発行日",
+          "format": "date",
+          "type": "string"
+        },
+        "issued": {
+          "description": "発行済かどうか（発行済の場合true）",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ApiEntity_DeliverySlip_DocumentItem"
+          },
+          "type": "array"
+        },
+        "lock_version": {
+          "description": "楽観ロックバージョン",
+          "format": "int32",
+          "type": "integer"
+        },
+        "payment_status": {
+          "description": "納品ステータス",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipient_name": {
+          "description": "取引先名",
+          "type": "string"
+        },
+        "recipient_notes": {
+          "description": "担当者",
+          "type": "string"
+        },
+        "recipient_title": {
+          "description": "取引先敬称",
+          "type": "string"
+        },
+        "subject": {
+          "description": "件名",
+          "type": "string"
+        },
+        "trashed_at": {
+          "description": "ごみ箱に移動した日時",
+          "format": "date-time",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "更新日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "ユーザID",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "issue_date",
+        "delivery_date",
+        "archived_at",
+        "trashed_at",
+        "delivery_slip_number",
+        "delivery_slip_status",
+        "payment_status",
+        "issued",
+        "user_id",
+        "recipient_name",
+        "recipient_title",
+        "recipient_notes",
+        "subject",
+        "body",
+        "items",
+        "contact_id",
+        "lock_version",
+        "created_at",
+        "updated_at"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_DeliverySlip_DocumentBody": {
+      "properties": {
+        "notes": {
+          "description": "備考",
+          "type": "string"
+        },
+        "private_sender_memo": {
+          "description": "社内メモ",
+          "type": "string"
+        },
+        "recipient_address1": {
+          "description": "取引先住所1",
+          "type": "string"
+        },
+        "recipient_address2": {
+          "description": "取引先住所2",
+          "type": "string"
+        },
+        "recipient_name1": {
+          "description": "取引先名1",
+          "type": "string"
+        },
+        "recipient_name2": {
+          "description": "取引先名2",
+          "type": "string"
+        },
+        "recipient_name3": {
+          "description": "取引先名3",
+          "type": "string"
+        },
+        "recipient_name4": {
+          "description": "取引先名4",
+          "type": "string"
+        },
+        "recipient_title": {
+          "description": "取引先敬称",
+          "type": "string"
+        },
+        "recipient_zip_code": {
+          "description": "取引先郵便番号",
+          "type": "string"
+        },
+        "sender_address1": {
+          "description": "自社住所1",
+          "type": "string"
+        },
+        "sender_address2": {
+          "description": "自社住所2",
+          "type": "string"
+        },
+        "sender_address3": {
+          "description": "自社住所3",
+          "type": "string"
+        },
+        "sender_email": {
+          "description": "自社Email",
+          "type": "string"
+        },
+        "sender_fax": {
+          "description": "自社FAX",
+          "type": "string"
+        },
+        "sender_name1": {
+          "description": "自社名1",
+          "type": "string"
+        },
+        "sender_name2": {
+          "description": "自社名2",
+          "type": "string"
+        },
+        "sender_name3": {
+          "description": "自社名3",
+          "type": "string"
+        },
+        "sender_registration_number": {
+          "description": "登録番号",
+          "type": "string"
+        },
+        "sender_tel": {
+          "description": "自社TEL",
+          "type": "string"
+        },
+        "sender_zip_code": {
+          "description": "自社郵便番号",
+          "type": "string"
+        },
+        "tax": {
+          "description": "消費税",
+          "format": "double",
+          "type": "number"
+        },
+        "tax_option": {
+          "description": "消費税設定('INCLUDE': 税込表示, 'EXCLUDE': 税別表示, 'EXEMPT': 税込表示(免税), 'NONENTRY': 税別表示(請求時に計算))",
+          "type": "string"
+        },
+        "tax_rounding_policy": {
+          "description": "消費税端数処理('CEIL': 切り上げ, 'FLOOR': 切り捨て, 'ROUND': 四捨五入)",
+          "type": "string"
+        },
+        "total_amount": {
+          "description": "小計",
+          "format": "double",
+          "type": "number"
+        },
+        "total_amount_including_tax": {
+          "description": "合計",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "sender_name1",
+        "sender_name2",
+        "sender_name3",
+        "sender_zip_code",
+        "sender_address1",
+        "sender_address2",
+        "sender_address3",
+        "sender_tel",
+        "sender_fax",
+        "sender_email",
+        "sender_registration_number",
+        "recipient_zip_code",
+        "recipient_address1",
+        "recipient_address2",
+        "recipient_name1",
+        "recipient_name2",
+        "recipient_name3",
+        "recipient_name4",
+        "recipient_title",
+        "notes",
+        "private_sender_memo",
+        "tax_option",
+        "tax_rounding_policy",
+        "total_amount",
+        "tax",
+        "total_amount_including_tax"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_DeliverySlip_DocumentItem": {
+      "properties": {
+        "name": {
+          "description": "品目",
+          "type": "string"
+        },
+        "price": {
+          "description": "金額",
+          "format": "double",
+          "type": "number"
+        },
+        "quantity": {
+          "description": "数量",
+          "format": "double",
+          "type": "number"
+        },
+        "tax_type": {
+          "description": "消費税区分('STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%, 'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)",
+          "type": "string"
+        },
+        "unit_name": {
+          "description": "単位",
+          "type": "string"
+        },
+        "unit_price": {
+          "description": "単価",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "unit_price",
+        "quantity",
+        "price",
+        "unit_name",
+        "tax_type"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_Distribution": {
+      "description": "ApiEntity_Distribution model",
+      "properties": {
+        "created_at": {
+          "description": "作成日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "document": {
+          "$ref": "#/definitions/ApiEntity_Estimate"
+        },
+        "id": {
+          "description": "メール送信を識別する一意なID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "mail_cc": {
+          "description": "メールのCC",
+          "type": "string"
+        },
+        "mail_message": {
+          "description": "取引先へのメッセージ",
+          "type": "string"
+        },
+        "mail_sent_at": {
+          "description": "送信日時",
+          "format": "date-time",
+          "type": "string"
+        },
+        "mail_subject": {
+          "description": "メールの件名",
+          "type": "string"
+        },
+        "mail_to": {
+          "description": "メールの宛先",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "更新日",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "mail_subject",
+        "mail_message",
+        "mail_to",
+        "mail_cc",
+        "mail_sent_at",
+        "document",
+        "created_at",
+        "updated_at"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_Error": {
+      "description": "ApiEntity_Error model",
+      "properties": {
+        "reasons": {
+          "description": "エラー理由",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "reasons"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_Estimate": {
+      "description": "ApiEntity_Estimate model",
+      "properties": {
+        "archived_at": {
+          "description": "処理済みに移動した日時",
+          "format": "date-time",
+          "type": "string"
+        },
+        "body": {
+          "$ref": "#/definitions/ApiEntity_Estimate_EstimateBody"
+        },
+        "contact_id": {
+          "description": "送り先を識別する一意なID。取引先を削除した場合もIDは残ります",
+          "format": "int32",
+          "type": "integer"
+        },
+        "created_at": {
+          "description": "作成日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "estimate_number": {
+          "description": "見積書番号",
+          "type": "string"
+        },
+        "estimate_status": {
+          "description": "発行ステータス",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "expire_date": {
+          "description": "有効期限",
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "description": "見積書を識別する一意なID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "issue_date": {
+          "description": "発行日",
+          "format": "date",
+          "type": "string"
+        },
+        "issued": {
+          "description": "発行済かどうか（発行済の場合true）",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ApiEntity_Estimate_EstimateItem"
+          },
+          "type": "array"
+        },
+        "lock_version": {
+          "description": "楽観ロックバージョン",
+          "format": "int32",
+          "type": "integer"
+        },
+        "payment_status": {
+          "description": "受注ステータス",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipient_name": {
+          "description": "取引先名",
+          "type": "string"
+        },
+        "recipient_notes": {
+          "description": "担当者",
+          "type": "string"
+        },
+        "recipient_title": {
+          "description": "取引先敬称",
+          "type": "string"
+        },
+        "subject": {
+          "description": "件名",
+          "type": "string"
+        },
+        "trashed_at": {
+          "description": "ごみ箱に移動した日時",
+          "format": "date-time",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "更新日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "ユーザID",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "issue_date",
+        "expire_date",
+        "archived_at",
+        "trashed_at",
+        "estimate_number",
+        "estimate_status",
+        "payment_status",
+        "issued",
+        "user_id",
+        "recipient_name",
+        "recipient_title",
+        "recipient_notes",
+        "subject",
+        "body",
+        "items",
+        "contact_id",
+        "lock_version",
+        "created_at",
+        "updated_at"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_Estimate_EstimateBody": {
+      "properties": {
+        "notes": {
+          "description": "備考",
+          "type": "string"
+        },
+        "private_sender_memo": {
+          "description": "社内メモ",
+          "type": "string"
+        },
+        "recipient_address1": {
+          "description": "取引先住所1",
+          "type": "string"
+        },
+        "recipient_address2": {
+          "description": "取引先住所2",
+          "type": "string"
+        },
+        "recipient_name1": {
+          "description": "取引先名1",
+          "type": "string"
+        },
+        "recipient_name2": {
+          "description": "取引先名2",
+          "type": "string"
+        },
+        "recipient_name3": {
+          "description": "取引先名3",
+          "type": "string"
+        },
+        "recipient_name4": {
+          "description": "取引先名4",
+          "type": "string"
+        },
+        "recipient_title": {
+          "description": "取引先敬称",
+          "type": "string"
+        },
+        "recipient_zip_code": {
+          "description": "取引先郵便番号",
+          "type": "string"
+        },
+        "sender_address1": {
+          "description": "自社住所1",
+          "type": "string"
+        },
+        "sender_address2": {
+          "description": "自社住所2",
+          "type": "string"
+        },
+        "sender_address3": {
+          "description": "自社住所3",
+          "type": "string"
+        },
+        "sender_email": {
+          "description": "自社Email",
+          "type": "string"
+        },
+        "sender_fax": {
+          "description": "自社FAX",
+          "type": "string"
+        },
+        "sender_name1": {
+          "description": "自社名1",
+          "type": "string"
+        },
+        "sender_name2": {
+          "description": "自社名2",
+          "type": "string"
+        },
+        "sender_name3": {
+          "description": "自社名3",
+          "type": "string"
+        },
+        "sender_registration_number": {
+          "description": "登録番号",
+          "type": "string"
+        },
+        "sender_tel": {
+          "description": "自社TEL",
+          "type": "string"
+        },
+        "sender_zip_code": {
+          "description": "自社郵便番号",
+          "type": "string"
+        },
+        "tax": {
+          "description": "消費税",
+          "format": "double",
+          "type": "number"
+        },
+        "tax_option": {
+          "description": "消費税設定('INCLUDE': 税込表示, 'EXCLUDE': 税別表示, 'EXEMPT': 税込表示(免税))",
+          "type": "string"
+        },
+        "tax_rounding_policy": {
+          "description": "消費税端数処理('CEIL': 切り上げ, 'FLOOR': 切り捨て, 'ROUND': 四捨五入)",
+          "type": "string"
+        },
+        "total_amount": {
+          "description": "小計",
+          "format": "double",
+          "type": "number"
+        },
+        "total_amount_including_tax": {
+          "description": "合計",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "sender_name1",
+        "sender_name2",
+        "sender_name3",
+        "sender_zip_code",
+        "sender_address1",
+        "sender_address2",
+        "sender_address3",
+        "sender_tel",
+        "sender_fax",
+        "sender_email",
+        "sender_registration_number",
+        "recipient_zip_code",
+        "recipient_address1",
+        "recipient_address2",
+        "recipient_name1",
+        "recipient_name2",
+        "recipient_name3",
+        "recipient_name4",
+        "recipient_title",
+        "notes",
+        "private_sender_memo",
+        "tax_option",
+        "tax_rounding_policy",
+        "total_amount",
+        "tax",
+        "total_amount_including_tax"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_Estimate_EstimateItem": {
+      "properties": {
+        "name": {
+          "description": "品目",
+          "type": "string"
+        },
+        "price": {
+          "description": "金額",
+          "format": "double",
+          "type": "number"
+        },
+        "quantity": {
+          "description": "数量",
+          "format": "double",
+          "type": "number"
+        },
+        "tax_type": {
+          "description": "消費税区分('STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%, 'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)",
+          "type": "string"
+        },
+        "unit_name": {
+          "description": "単位",
+          "type": "string"
+        },
+        "unit_price": {
+          "description": "単価",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "unit_price",
+        "quantity",
+        "price",
+        "unit_name",
+        "tax_type"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_Invoice": {
+      "description": "ApiEntity_Invoice model",
+      "properties": {
+        "archived_at": {
+          "description": "処理済みに移動した日時",
+          "format": "date-time",
+          "type": "string"
+        },
+        "body": {
+          "$ref": "#/definitions/ApiEntity_Invoice_InvoiceBody"
+        },
+        "contact_id": {
+          "description": "送り先を識別する一意なID。取引先を削除した場合もIDは残ります",
+          "format": "int32",
+          "type": "integer"
+        },
+        "created_at": {
+          "description": "作成日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "description": "請求書を識別する一意なID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "invoice_number": {
+          "description": "請求書番号",
+          "type": "string"
+        },
+        "invoice_payment_history": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApiEntity_Invoice_InvoicePaymentHistory"
+            }
+          ],
+          "description": "入金履歴"
+        },
+        "invoice_status": {
+          "description": "請求ステータス",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "issue_date": {
+          "description": "発行日",
+          "format": "date",
+          "type": "string"
+        },
+        "issued": {
+          "description": "発行済かどうか（発行済の場合true）",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ApiEntity_Invoice_InvoiceItem"
+          },
+          "type": "array"
+        },
+        "lock_version": {
+          "description": "楽観ロックバージョン",
+          "format": "int32",
+          "type": "integer"
+        },
+        "payment_due_on": {
+          "description": "お支払い期限",
+          "format": "date",
+          "type": "string"
+        },
+        "payment_status": {
+          "description": "入金ステータス",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipient_name": {
+          "description": "取引先名",
+          "type": "string"
+        },
+        "recipient_notes": {
+          "description": "担当者",
+          "type": "string"
+        },
+        "recipient_title": {
+          "description": "取引先敬称",
+          "type": "string"
+        },
+        "subject": {
+          "description": "件名",
+          "type": "string"
+        },
+        "trashed_at": {
+          "description": "ごみ箱に移動した日時",
+          "format": "date-time",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "更新日",
+          "format": "date-time",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "ユーザID",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "issue_date",
+        "payment_due_on",
+        "archived_at",
+        "trashed_at",
+        "invoice_number",
+        "invoice_status",
+        "payment_status",
+        "invoice_payment_history",
+        "issued",
+        "user_id",
+        "recipient_name",
+        "recipient_title",
+        "recipient_notes",
+        "subject",
+        "body",
+        "items",
+        "contact_id",
+        "lock_version",
+        "created_at",
+        "updated_at"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_InvoicePostalMail": {
+      "description": "ApiEntity_InvoicePostalMail model",
+      "properties": {
+        "delivery_status_result": {
+          "description": "発送状況",
+          "type": "string"
+        },
+        "invoice": {
+          "$ref": "#/definitions/ApiEntity_Invoice"
+        }
+      },
+      "required": [
+        "invoice",
+        "delivery_status_result"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_Invoice_BankAccount": {
+      "properties": {
+        "detail": {
+          "description": "お振込先",
+          "type": "string"
+        }
+      },
+      "required": [
+        "detail"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_Invoice_InvoiceBody": {
+      "properties": {
+        "amount_of_withholding_tax": {
+          "description": "源泉徴収税額",
+          "format": "double",
+          "type": "number"
+        },
+        "bank_accounts": {
+          "items": {
+            "$ref": "#/definitions/ApiEntity_Invoice_BankAccount"
+          },
+          "type": "array"
+        },
+        "notes": {
+          "description": "備考",
+          "type": "string"
+        },
+        "private_sender_memo": {
+          "description": "社内メモ",
+          "type": "string"
+        },
+        "recipient_address1": {
+          "description": "取引先住所1",
+          "type": "string"
+        },
+        "recipient_address2": {
+          "description": "取引先住所2",
+          "type": "string"
+        },
+        "recipient_name1": {
+          "description": "取引先名1",
+          "type": "string"
+        },
+        "recipient_name2": {
+          "description": "取引先名2",
+          "type": "string"
+        },
+        "recipient_name3": {
+          "description": "取引先名3",
+          "type": "string"
+        },
+        "recipient_name4": {
+          "description": "取引先名4",
+          "type": "string"
+        },
+        "recipient_title": {
+          "description": "取引先敬称",
+          "type": "string"
+        },
+        "recipient_zip_code": {
+          "description": "取引先郵便番号",
+          "type": "string"
+        },
+        "sender_address1": {
+          "description": "自社住所1",
+          "type": "string"
+        },
+        "sender_address2": {
+          "description": "自社住所2",
+          "type": "string"
+        },
+        "sender_address3": {
+          "description": "自社住所3",
+          "type": "string"
+        },
+        "sender_email": {
+          "description": "自社Email",
+          "type": "string"
+        },
+        "sender_fax": {
+          "description": "自社FAX",
+          "type": "string"
+        },
+        "sender_name1": {
+          "description": "自社名1",
+          "type": "string"
+        },
+        "sender_name2": {
+          "description": "自社名2",
+          "type": "string"
+        },
+        "sender_name3": {
+          "description": "自社名3",
+          "type": "string"
+        },
+        "sender_registration_number": {
+          "description": "登録番号",
+          "type": "string"
+        },
+        "sender_tel": {
+          "description": "自社TEL",
+          "type": "string"
+        },
+        "sender_zip_code": {
+          "description": "自社郵便番号",
+          "type": "string"
+        },
+        "tax": {
+          "description": "消費税",
+          "format": "double",
+          "type": "number"
+        },
+        "tax_option": {
+          "description": "消費税設定('INCLUDE': 税込表示, 'EXCLUDE': 税別表示, 'EXEMPT': 税込表示(免税))",
+          "type": "string"
+        },
+        "tax_rounding_policy": {
+          "description": "消費税端数処理('CEIL': 切り上げ, 'FLOOR': 切り捨て, 'ROUND': 四捨五入)",
+          "type": "string"
+        },
+        "total_amount": {
+          "description": "小計",
+          "format": "double",
+          "type": "number"
+        },
+        "total_amount_including_tax": {
+          "description": "合計",
+          "format": "double",
+          "type": "number"
+        },
+        "withholding_tax_type": {
+          "description": "源泉徴収税設定('None': なし, 'JapaneseStandard': あり(復興税なし), 'JapaneseStandardWithReconstructionTax': あり(復興税あり))",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sender_name1",
+        "sender_name2",
+        "sender_name3",
+        "sender_zip_code",
+        "sender_address1",
+        "sender_address2",
+        "sender_address3",
+        "sender_tel",
+        "sender_fax",
+        "sender_email",
+        "sender_registration_number",
+        "recipient_zip_code",
+        "recipient_address1",
+        "recipient_address2",
+        "recipient_name1",
+        "recipient_name2",
+        "recipient_name3",
+        "recipient_name4",
+        "recipient_title",
+        "notes",
+        "private_sender_memo",
+        "tax_option",
+        "tax_rounding_policy",
+        "withholding_tax_type",
+        "amount_of_withholding_tax",
+        "total_amount",
+        "tax",
+        "total_amount_including_tax",
+        "bank_accounts"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_Invoice_InvoiceItem": {
+      "properties": {
+        "excluding_withholding_tax": {
+          "description": "源泉徴収税フラグ",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "品目",
+          "type": "string"
+        },
+        "price": {
+          "description": "金額",
+          "format": "double",
+          "type": "number"
+        },
+        "quantity": {
+          "description": "数量",
+          "format": "double",
+          "type": "number"
+        },
+        "tax_type": {
+          "description": "消費税区分('STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%, 'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)",
+          "type": "string"
+        },
+        "transaction_date": {
+          "description": "納品日",
+          "format": "date",
+          "type": "string"
+        },
+        "unit_name": {
+          "description": "単位",
+          "type": "string"
+        },
+        "unit_price": {
+          "description": "単価",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "unit_price",
+        "quantity",
+        "price",
+        "unit_name",
+        "tax_type",
+        "excluding_withholding_tax"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_Invoice_InvoicePaymentHistory": {
+      "properties": {
+        "last_paid_on": {
+          "description": "最新の入金日",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "last_paid_on"
+      ],
+      "type": "object"
+    },
+    "ApiEntity_User": {
+      "description": "ApiEntity_User model",
+      "properties": {
+        "email": {
+          "description": "登録されているメールアドレス",
+          "type": "string"
+        },
+        "id": {
+          "description": "ユーザーID",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "email"
+      ],
+      "type": "object"
+    },
+    "postContact": {
+      "description": "送り先を作成します",
+      "properties": {
+        "contact_group_id": {
+          "description": "取引先ID。取引先IDか取引先名どちらかを指定する必要があります。取引先IDを指定したときは、取引先名・敬称・ふりがな・消費税設定の指定が無視され、指定した取引先の値が使われます。",
+          "format": "int32",
+          "type": "integer"
+        },
+        "memo": {
+          "description": "メモ",
+          "type": "string"
+        },
+        "recipient_address1": {
+          "description": "住所1",
+          "type": "string"
+        },
+        "recipient_address2": {
+          "description": "住所2",
+          "type": "string"
+        },
+        "recipient_code": {
+          "description": "管理コード",
+          "type": "string"
+        },
+        "recipient_fax_no": {
+          "description": "FAX番号",
+          "type": "string"
+        },
+        "recipient_mail_address": {
+          "description": "メールアドレス",
+          "type": "string"
+        },
+        "recipient_mail_address_cc": {
+          "description": "メールアドレス（CC）",
+          "type": "string"
+        },
+        "recipient_name": {
+          "description": "取引先名。取引先IDか取引先名どちらかを指定する必要があります。",
+          "type": "string"
+        },
+        "recipient_name1": {
+          "description": "郵送先の宛名1",
+          "type": "string"
+        },
+        "recipient_name2": {
+          "description": "郵送先の宛名2",
+          "type": "string"
+        },
+        "recipient_name3": {
+          "description": "郵送先の宛名3",
+          "type": "string"
+        },
+        "recipient_name4": {
+          "description": "郵送先の宛名4",
+          "type": "string"
+        },
+        "recipient_notes": {
+          "description": "部署・担当者",
+          "type": "string"
+        },
+        "recipient_ruby": {
+          "description": "ふりがな",
+          "type": "string"
+        },
+        "recipient_tel_no": {
+          "description": "電話番号",
+          "type": "string"
+        },
+        "recipient_title": {
+          "description": "敬称",
+          "type": "string"
+        },
+        "recipient_title2": {
+          "description": "郵送先の敬称",
+          "type": "string"
+        },
+        "recipient_zip_code": {
+          "description": "郵便番号",
+          "type": "string"
+        },
+        "tax_option": {
+          "default": "USE_SENDER",
+          "description": "消費税設定('USE_SENDER': 自社情報の設定, 'INCLUDE': 税込表示, 'EXCLUDE': 税別表示,\n                     'EXEMPT': 税込表示(免税), 'NONENTRY': 税別表示(納品書のみ請求時に計算))",
+          "enum": [
+            "USE_SENDER",
+            "INCLUDE",
+            "EXCLUDE",
+            "EXEMPT",
+            "NONENTRY"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "postContactGroup": {
+      "description": "取引先を作成します",
+      "properties": {
+        "bank_accounts": {
+          "items": {
+            "properties": {
+              "detail": {
+                "description": "お振込先",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "mail_settings": {
+          "properties": {
+            "subjects": {
+              "properties": {
+                "delivery_slip": {
+                  "description": "メールの件名:納品書",
+                  "type": "string"
+                },
+                "estimate": {
+                  "description": "メールの件名:見積書",
+                  "type": "string"
+                },
+                "invoice": {
+                  "description": "メールの件名:請求書",
+                  "type": "string"
+                },
+                "simplified_invoice": {
+                  "description": "メールの件名:領収書",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "peppol_id": {
+          "description": "Peppol ID",
+          "type": "string"
+        },
+        "recipient_name": {
+          "description": "取引先名",
+          "type": "string"
+        },
+        "recipient_ruby": {
+          "description": "ふりがな",
+          "type": "string"
+        },
+        "recipient_title": {
+          "description": "敬称",
+          "type": "string"
+        },
+        "tax_option": {
+          "default": "USE_SENDER",
+          "description": "消費税設定('USE_SENDER': 自社情報の設定, 'INCLUDE': 税込表示, 'EXCLUDE': 税別表示,\n                     'EXEMPT': 税込表示(免税), 'NONENTRY': 税別表示(納品書のみ請求時に計算))",
+          "enum": [
+            "USE_SENDER",
+            "INCLUDE",
+            "EXCLUDE",
+            "EXEMPT",
+            "NONENTRY"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "recipient_name"
+      ],
+      "type": "object"
+    },
+    "postDealingItem": {
+      "description": "品目を作成します",
+      "properties": {
+        "excluding_withholding_tax": {
+          "default": false,
+          "description": "源泉徴収税フラグ",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "品番・品名",
+          "type": "string"
+        },
+        "tax_type": {
+          "default": "USE_SENDER",
+          "description": "消費税区分('USE_SENDER': 自社情報の設定, 'STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%,\n                    'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)",
+          "enum": [
+            "USE_SENDER",
+            "STANDARD_TAX_10",
+            "REDUCED_TAX_8",
+            "STANDARD_TAX_8",
+            "STANDARD_TAX_5",
+            "EXEMPTED_TAX"
+          ],
+          "type": "string"
+        },
+        "unit_name": {
+          "description": "単位",
+          "type": "string"
+        },
+        "unit_price": {
+          "description": "単価",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "postDeliverySlip": {
+      "description": "納品書を作成します",
+      "properties": {
+        "body": {
+          "properties": {
+            "notes": {
+              "description": "備考",
+              "type": "string"
+            },
+            "sender_address1": {
+              "description": "自社の住所1",
+              "type": "string"
+            },
+            "sender_address2": {
+              "description": "自社の住所2",
+              "type": "string"
+            },
+            "sender_address3": {
+              "description": "自社の住所3",
+              "type": "string"
+            },
+            "sender_email": {
+              "description": "自社のメールアドレス",
+              "type": "string"
+            },
+            "sender_fax": {
+              "description": "自社のFAX番号",
+              "type": "string"
+            },
+            "sender_name1": {
+              "description": "自社の名前1",
+              "type": "string"
+            },
+            "sender_name2": {
+              "description": "自社の名前2",
+              "type": "string"
+            },
+            "sender_name3": {
+              "description": "自社の名前3",
+              "type": "string"
+            },
+            "sender_registration_number": {
+              "description": "登録番号",
+              "type": "string"
+            },
+            "sender_tel": {
+              "description": "自社の電話番号",
+              "type": "string"
+            },
+            "sender_zip_code": {
+              "description": "自社の郵便番号",
+              "type": "string"
+            },
+            "tax_option": {
+              "description": "消費税設定('INCLUDE': 税込表示, 'EXCLUDE': 税別表示, 'EXEMPT': 税込表示(免税), 'NONENTRY': 税別表示（請求時に計算）)",
+              "enum": [
+                "INCLUDE",
+                "EXCLUDE",
+                "EXEMPT",
+                "NONENTRY"
+              ],
+              "type": "string"
+            },
+            "tax_rounding_policy": {
+              "description": "消費税端数処理('CEIL': 切り上げ, 'FLOOR': 切り捨て, 'ROUND': 四捨五入)",
+              "enum": [
+                "FLOOR",
+                "CEIL",
+                "ROUND"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "contact_id": {
+          "description": "送り先ID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "delivery_date": {
+          "description": "納品日",
+          "format": "date",
+          "type": "string"
+        },
+        "delivery_slip_number": {
+          "description": "納品書番号",
+          "type": "string"
+        },
+        "issue_date": {
+          "description": "発行日",
+          "format": "date",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "properties": {
+              "name": {
+                "description": "品目",
+                "type": "string"
+              },
+              "quantity": {
+                "description": "数量",
+                "format": "double",
+                "type": "number"
+              },
+              "tax_type": {
+                "description": "消費税区分('STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%, 'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)",
+                "enum": [
+                  "STANDARD_TAX_5",
+                  "STANDARD_TAX_8",
+                  "STANDARD_TAX_10",
+                  "REDUCED_TAX_8",
+                  "EXEMPTED_TAX"
+                ],
+                "type": "string"
+              },
+              "unit_name": {
+                "description": "単位",
+                "type": "string"
+              },
+              "unit_price": {
+                "description": "単価",
+                "format": "double",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "subject": {
+          "description": "件名",
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue_date",
+        "contact_id"
+      ],
+      "type": "object"
+    },
+    "postEstimate": {
+      "description": "見積書を作成します",
+      "properties": {
+        "body": {
+          "properties": {
+            "notes": {
+              "description": "備考",
+              "type": "string"
+            },
+            "sender_address1": {
+              "description": "自社の住所1",
+              "type": "string"
+            },
+            "sender_address2": {
+              "description": "自社の住所2",
+              "type": "string"
+            },
+            "sender_address3": {
+              "description": "自社の住所3",
+              "type": "string"
+            },
+            "sender_email": {
+              "description": "自社のメールアドレス",
+              "type": "string"
+            },
+            "sender_fax": {
+              "description": "自社のFAX番号",
+              "type": "string"
+            },
+            "sender_name1": {
+              "description": "自社の名前1",
+              "type": "string"
+            },
+            "sender_name2": {
+              "description": "自社の名前2",
+              "type": "string"
+            },
+            "sender_name3": {
+              "description": "自社の名前3",
+              "type": "string"
+            },
+            "sender_registration_number": {
+              "description": "登録番号",
+              "type": "string"
+            },
+            "sender_tel": {
+              "description": "自社の電話番号",
+              "type": "string"
+            },
+            "sender_zip_code": {
+              "description": "自社の郵便番号",
+              "type": "string"
+            },
+            "tax_option": {
+              "description": "消費税設定('INCLUDE': 税込表示, 'EXCLUDE': 税別表示, 'EXEMPT': 税込表示(免税))",
+              "enum": [
+                "INCLUDE",
+                "EXCLUDE",
+                "EXEMPT"
+              ],
+              "type": "string"
+            },
+            "tax_rounding_policy": {
+              "description": "消費税端数処理('CEIL': 切り上げ, 'FLOOR': 切り捨て, 'ROUND': 四捨五入)",
+              "enum": [
+                "FLOOR",
+                "CEIL",
+                "ROUND"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "contact_id": {
+          "description": "送り先ID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "estimate_number": {
+          "description": "見積書番号",
+          "type": "string"
+        },
+        "expire_date": {
+          "description": "有効期限",
+          "format": "date",
+          "type": "string"
+        },
+        "issue_date": {
+          "description": "発行日",
+          "format": "date",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "properties": {
+              "name": {
+                "description": "品目",
+                "type": "string"
+              },
+              "quantity": {
+                "description": "数量",
+                "format": "double",
+                "type": "number"
+              },
+              "tax_type": {
+                "description": "消費税区分('STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%, 'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)",
+                "enum": [
+                  "STANDARD_TAX_5",
+                  "STANDARD_TAX_8",
+                  "STANDARD_TAX_10",
+                  "REDUCED_TAX_8",
+                  "EXEMPTED_TAX"
+                ],
+                "type": "string"
+              },
+              "unit_name": {
+                "description": "単位",
+                "type": "string"
+              },
+              "unit_price": {
+                "description": "単価",
+                "format": "double",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "subject": {
+          "description": "件名",
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue_date",
+        "contact_id"
+      ],
+      "type": "object"
+    },
+    "postEstimateIdDistribute": {
+      "description": "見積書をメール送信します",
+      "properties": {
+        "including_self_to_cc": {
+          "description": "自分自身にccを送るかどうか",
+          "type": "boolean"
+        },
+        "mail_body": {
+          "description": "本文",
+          "type": "string"
+        },
+        "mail_message": {
+          "description": "取引先へのメッセージ、本文を指定する場合は無視されます",
+          "type": "string"
+        },
+        "mail_subject": {
+          "description": "件名",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mail_subject"
+      ],
+      "type": "object"
+    },
+    "postInvoice": {
+      "description": "請求書を作成します",
+      "properties": {
+        "body": {
+          "properties": {
+            "bank_accounts": {
+              "items": {
+                "properties": {
+                  "detail": {
+                    "description": "お振込先",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "notes": {
+              "description": "備考",
+              "type": "string"
+            },
+            "sender_address1": {
+              "description": "自社の住所1",
+              "type": "string"
+            },
+            "sender_address2": {
+              "description": "自社の住所2",
+              "type": "string"
+            },
+            "sender_address3": {
+              "description": "自社の住所3",
+              "type": "string"
+            },
+            "sender_email": {
+              "description": "自社のメールアドレス",
+              "type": "string"
+            },
+            "sender_fax": {
+              "description": "自社のFAX番号",
+              "type": "string"
+            },
+            "sender_name1": {
+              "description": "自社の名前1",
+              "type": "string"
+            },
+            "sender_name2": {
+              "description": "自社の名前2",
+              "type": "string"
+            },
+            "sender_name3": {
+              "description": "自社の名前3",
+              "type": "string"
+            },
+            "sender_registration_number": {
+              "description": "登録番号",
+              "type": "string"
+            },
+            "sender_tel": {
+              "description": "自社の電話番号",
+              "type": "string"
+            },
+            "sender_zip_code": {
+              "description": "自社の郵便番号",
+              "type": "string"
+            },
+            "tax_option": {
+              "description": "消費税設定('INCLUDE': 税込表示, 'EXCLUDE': 税別表示, 'EXEMPT': 税込表示(免税))",
+              "enum": [
+                "INCLUDE",
+                "EXCLUDE",
+                "EXEMPT"
+              ],
+              "type": "string"
+            },
+            "tax_rounding_policy": {
+              "description": "消費税端数処理('CEIL': 切り上げ, 'FLOOR': 切り捨て, 'ROUND': 四捨五入)",
+              "enum": [
+                "FLOOR",
+                "CEIL",
+                "ROUND"
+              ],
+              "type": "string"
+            },
+            "withholding_tax_type": {
+              "description": "源泉徴収税設定('None': なし, 'JapaneseStandard': あり(復興税なし), 'JapaneseStandardWithReconstructionTax': あり(復興税あり))",
+              "enum": [
+                "None",
+                "JapaneseStandardWithReconstructionTax",
+                "JapaneseStandard"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "contact_id": {
+          "description": "送り先ID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "invoice_number": {
+          "description": "請求書番号",
+          "type": "string"
+        },
+        "issue_date": {
+          "description": "請求日",
+          "format": "date",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "properties": {
+              "excluding_withholding_tax": {
+                "default": false,
+                "description": "源泉徴収税フラグ",
+                "type": "boolean"
+              },
+              "name": {
+                "description": "品目",
+                "type": "string"
+              },
+              "quantity": {
+                "description": "数量",
+                "format": "double",
+                "type": "number"
+              },
+              "tax_type": {
+                "description": "消費税区分('STANDARD_TAX_10': 10%, 'REDUCED_TAX_8': 軽減8%, 'STANDARD_TAX_8': 8%, 'STANDARD_TAX_5': 5%, 'EXEMPTED_TAX': 対象外)",
+                "enum": [
+                  "STANDARD_TAX_5",
+                  "STANDARD_TAX_8",
+                  "STANDARD_TAX_10",
+                  "REDUCED_TAX_8",
+                  "EXEMPTED_TAX"
+                ],
+                "type": "string"
+              },
+              "transaction_date": {
+                "description": "納品日",
+                "format": "date",
+                "type": "string"
+              },
+              "unit_name": {
+                "description": "単位",
+                "type": "string"
+              },
+              "unit_price": {
+                "description": "単価",
+                "format": "double",
+                "type": "number"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "payment_due_on": {
+          "description": "お支払い期限",
+          "format": "date",
+          "type": "string"
+        },
+        "subject": {
+          "description": "件名",
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue_date",
+        "contact_id"
+      ],
+      "type": "object"
+    },
+    "putInvoiceIdPaid": {
+      "description": "請求書を入金済にします",
+      "properties": {
+        "paid_on": {
+          "description": "入金日。指定しない場合、かつ、請求書のお支払い期限が設定済みの場合、お支払い期限を入金日にします。",
+          "format": "date",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "app.misoca.jp",
+  "info": {
+    "description": "Misoca を外部アプリケーションから利用するためのAPIです。",
+    "title": "Misoca API v3",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/contact": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "postContact",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postContact"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "送り先を作成します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Contact"
+            }
+          }
+        },
+        "summary": "送り先を作成します",
+        "tags": [
+          "contact"
+        ]
+      }
+    },
+    "/contact/{id}": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getContactId",
+        "parameters": [
+          {
+            "description": "送り先のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "送り先を取得します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Contact"
+            }
+          }
+        },
+        "summary": "送り先を取得します",
+        "tags": [
+          "contact"
+        ]
+      }
+    },
+    "/contact/{id}/trashed": {
+      "delete": {
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "deleteContactIdTrashed",
+        "parameters": [
+          {
+            "description": "送り先のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "送り先を表示にします",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Contact"
+            }
+          }
+        },
+        "summary": "送り先を表示にします",
+        "tags": [
+          "contact"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "putContactIdTrashed",
+        "parameters": [
+          {
+            "description": "送り先のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "送り先を非表示にします",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Contact"
+            }
+          }
+        },
+        "summary": "送り先を非表示にします",
+        "tags": [
+          "contact"
+        ]
+      }
+    },
+    "/contact_group": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "postContactGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postContactGroup"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "取引先を作成します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_ContactGroup"
+            }
+          }
+        },
+        "summary": "取引先を作成します",
+        "tags": [
+          "contact_group"
+        ]
+      }
+    },
+    "/contact_group/{id}": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getContactGroupId",
+        "parameters": [
+          {
+            "description": "取引先のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "取引先を取得します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_ContactGroup"
+            }
+          }
+        },
+        "summary": "取引先を取得します",
+        "tags": [
+          "contact_group"
+        ]
+      }
+    },
+    "/contact_group/{id}/trashed": {
+      "delete": {
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "deleteContactGroupIdTrashed",
+        "parameters": [
+          {
+            "description": "取引先のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "取引先を表示にします",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_ContactGroup"
+            }
+          }
+        },
+        "summary": "取引先を表示にします",
+        "tags": [
+          "contact_group"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "putContactGroupIdTrashed",
+        "parameters": [
+          {
+            "description": "取引先のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "取引先を非表示にします",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_ContactGroup"
+            }
+          }
+        },
+        "summary": "取引先を非表示にします",
+        "tags": [
+          "contact_group"
+        ]
+      }
+    },
+    "/contact_groups": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getContactGroups",
+        "parameters": [
+          {
+            "description": "非表示にした取引先を取得したい場合に指定します。指定しない場合、または、falseを指定した場合、非表示にされていない取引先のみが取得されます。",
+            "in": "query",
+            "name": "trashed",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "取引先一覧を取得します",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ApiEntity_ContactGroup"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "取引先一覧を取得します",
+        "tags": [
+          "contact_groups"
+        ]
+      }
+    },
+    "/contacts": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getContacts",
+        "parameters": [
+          {
+            "description": "非表示にした送り先を取得したい場合に指定します。指定しない場合、または、falseを指定した場合、非表示にされていない送り先のみが取得されます。",
+            "in": "query",
+            "name": "trashed",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "特定の取引先に紐付いた送り先だけを取得したい場合に指定します。指定しない場合はすべての送り先を返します。",
+            "format": "int32",
+            "in": "query",
+            "name": "contact_group_id",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "送り先一覧を取得します",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ApiEntity_Contact"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "送り先一覧を取得します",
+        "tags": [
+          "contacts"
+        ]
+      }
+    },
+    "/dealing_item": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "postDealingItem",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postDealingItem"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "品目を作成します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_DealingItem"
+            }
+          }
+        },
+        "summary": "品目を作成します",
+        "tags": [
+          "dealing_item"
+        ]
+      }
+    },
+    "/dealing_item/{id}": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getDealingItemId",
+        "parameters": [
+          {
+            "description": "品目のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "品目を取得します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_DealingItem"
+            }
+          }
+        },
+        "summary": "品目を取得します",
+        "tags": [
+          "dealing_item"
+        ]
+      }
+    },
+    "/dealing_items": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getDealingItems",
+        "parameters": [
+          {
+            "default": 1,
+            "description": "ページを指定します",
+            "format": "int32",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 25,
+            "description": "1ページあたりの上限件数を指定します。(範囲: 1~100)",
+            "format": "int32",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "per_page",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "品目一覧を取得します",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ApiEntity_DealingItem"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "品目一覧を取得します",
+        "tags": [
+          "dealing_items"
+        ]
+      }
+    },
+    "/delivery_slip": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "postDeliverySlip",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postDeliverySlip"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "納品書を作成します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_DeliverySlip"
+            }
+          }
+        },
+        "summary": "納品書を作成します",
+        "tags": [
+          "delivery_slip"
+        ]
+      }
+    },
+    "/delivery_slip/{id}": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getDeliverySlipId",
+        "parameters": [
+          {
+            "description": "納品書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "納品書を取得します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_DeliverySlip"
+            }
+          }
+        },
+        "summary": "納品書を取得します",
+        "tags": [
+          "delivery_slip"
+        ]
+      }
+    },
+    "/delivery_slip/{id}/pdf": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getDeliverySlipIdPdf",
+        "parameters": [
+          {
+            "description": "納品書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "PDFを取得します。レスポンスがPDFデータになります"
+          }
+        },
+        "summary": "納品書のPDFを取得します",
+        "tags": [
+          "delivery_slip"
+        ]
+      }
+    },
+    "/delivery_slips": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getDeliverySlips",
+        "parameters": [
+          {
+            "default": "active",
+            "description": "取得する納品書の種類を指定します。(active: 未処理, archived: 処理済, trashed: ごみ箱, untrashed: 未処理と処理済)",
+            "enum": [
+              "active",
+              "archived",
+              "trashed",
+              "untrashed"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "取引先のID",
+            "format": "int32",
+            "in": "query",
+            "name": "contact_group_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 1,
+            "description": "ページを指定します",
+            "format": "int32",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 25,
+            "description": "1ページあたりの上限件数を指定します。(範囲: 1~100)",
+            "format": "int32",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "per_page",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "納品書一覧を取得します",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ApiEntity_DeliverySlip"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "納品書一覧を取得します",
+        "tags": [
+          "delivery_slips"
+        ]
+      }
+    },
+    "/estimate": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "postEstimate",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postEstimate"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "見積書を作成します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Estimate"
+            }
+          }
+        },
+        "summary": "見積書を作成します",
+        "tags": [
+          "estimate"
+        ]
+      }
+    },
+    "/estimate/{id}": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getEstimateId",
+        "parameters": [
+          {
+            "description": "見積書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "見積書を取得します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Estimate"
+            }
+          }
+        },
+        "summary": "見積書を取得します",
+        "tags": [
+          "estimate"
+        ]
+      }
+    },
+    "/estimate/{id}/distribute": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\nメールのデザインはMisocaで送信する場合と同一です。`mail_message`を指定することで、本文に取引先へのメッセージを追加できます。",
+        "operationId": "postEstimateIdDistribute",
+        "parameters": [
+          {
+            "description": "送信する見積書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postEstimateIdDistribute"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "見積書をメール送信します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Distribution"
+            }
+          }
+        },
+        "summary": "見積書をメール送信します",
+        "tags": [
+          "estimate"
+        ]
+      }
+    },
+    "/estimate/{id}/logo": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getEstimateIdLogo",
+        "parameters": [
+          {
+            "description": "見積書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "ロゴ画像を取得します。レスポンスが画像データになります"
+          },
+          "204": {
+            "description": "ロゴ画像が未登録の場合"
+          }
+        },
+        "summary": "見積書のロゴ画像を取得します",
+        "tags": [
+          "estimate"
+        ]
+      }
+    },
+    "/estimate/{id}/pdf": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getEstimateIdPdf",
+        "parameters": [
+          {
+            "description": "見積書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "PDFを取得します。レスポンスがPDFデータになります"
+          }
+        },
+        "summary": "見積書のPDFを取得します",
+        "tags": [
+          "estimate"
+        ]
+      }
+    },
+    "/estimate/{id}/stamp": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getEstimateIdStamp",
+        "parameters": [
+          {
+            "description": "見積書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "印影画像を取得します。レスポンスが画像データになります"
+          },
+          "204": {
+            "description": "印影画像が未登録の場合"
+          }
+        },
+        "summary": "見積書の印影画像を取得します",
+        "tags": [
+          "estimate"
+        ]
+      }
+    },
+    "/estimates": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getEstimates",
+        "parameters": [
+          {
+            "default": "active",
+            "description": "取得する見積書の種類を指定します。(active: 未処理, archived: 処理済, trashed: ごみ箱, untrashed: 未処理と処理済)",
+            "enum": [
+              "active",
+              "archived",
+              "trashed",
+              "untrashed"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "取引先のID",
+            "format": "int32",
+            "in": "query",
+            "name": "contact_group_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 1,
+            "description": "ページを指定します",
+            "format": "int32",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 25,
+            "description": "1ページあたりの上限件数を指定します。(範囲: 1~100)",
+            "format": "int32",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "per_page",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "見積書一覧を取得します",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ApiEntity_Estimate"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "見積書一覧を取得します",
+        "tags": [
+          "estimates"
+        ]
+      }
+    },
+    "/invoice": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "postInvoice",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postInvoice"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "請求書を作成します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Invoice"
+            }
+          }
+        },
+        "summary": "請求書を作成します",
+        "tags": [
+          "invoice"
+        ]
+      }
+    },
+    "/invoice/{id}": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getInvoiceId",
+        "parameters": [
+          {
+            "description": "請求書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "請求書を取得します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Invoice"
+            }
+          }
+        },
+        "summary": "請求書を取得します",
+        "tags": [
+          "invoice"
+        ]
+      }
+    },
+    "/invoice/{id}/paid": {
+      "delete": {
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "deleteInvoiceIdPaid",
+        "parameters": [
+          {
+            "description": "請求書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "請求書を未入金にします",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Invoice"
+            }
+          }
+        },
+        "summary": "請求書を未入金にします",
+        "tags": [
+          "invoice"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "putInvoiceIdPaid",
+        "parameters": [
+          {
+            "description": "請求書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/putInvoiceIdPaid"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "請求書を入金済にします",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Invoice"
+            }
+          }
+        },
+        "summary": "請求書を入金済にします",
+        "tags": [
+          "invoice"
+        ]
+      }
+    },
+    "/invoice/{id}/pdf": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getInvoiceIdPdf",
+        "parameters": [
+          {
+            "description": "請求書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "PDFを取得します。レスポンスがPDFデータになります"
+          }
+        },
+        "summary": "請求書のPDFを取得します",
+        "tags": [
+          "invoice"
+        ]
+      }
+    },
+    "/invoice/{id}/send_by_postal_mail": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "postInvoiceIdSendByPostalMail",
+        "parameters": [
+          {
+            "description": "請求書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "請求書の郵送指示を実行します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_InvoicePostalMail"
+            }
+          },
+          "422": {
+            "description": "何らかの理由で郵送指示に失敗した場合",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Error"
+            }
+          }
+        },
+        "summary": "請求書の郵送指示を実行します",
+        "tags": [
+          "invoice"
+        ]
+      }
+    },
+    "/invoice/{id}/submitted": {
+      "delete": {
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "deleteInvoiceIdSubmitted",
+        "parameters": [
+          {
+            "description": "請求書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "請求書を未請求にします",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Invoice"
+            }
+          }
+        },
+        "summary": "請求書を未請求にします",
+        "tags": [
+          "invoice"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "putInvoiceIdSubmitted",
+        "parameters": [
+          {
+            "description": "請求書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "請求書を請求済にします",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Invoice"
+            }
+          }
+        },
+        "summary": "請求書を請求済にします",
+        "tags": [
+          "invoice"
+        ]
+      }
+    },
+    "/invoice/{id}/trashed": {
+      "delete": {
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "deleteInvoiceIdTrashed",
+        "parameters": [
+          {
+            "description": "請求書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "請求書をごみ箱から出します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Invoice"
+            }
+          }
+        },
+        "summary": "請求書をごみ箱から出します",
+        "tags": [
+          "invoice"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\n\n必要なscope: write\n\n",
+        "operationId": "putInvoiceIdTrashed",
+        "parameters": [
+          {
+            "description": "請求書のID",
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "請求書をごみ箱に移動します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_Invoice"
+            }
+          }
+        },
+        "summary": "請求書をごみ箱に移動します",
+        "tags": [
+          "invoice"
+        ]
+      }
+    },
+    "/invoices": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getInvoices",
+        "parameters": [
+          {
+            "default": "active",
+            "description": "取得する請求書の種類を指定します。(active: 未処理, archived: 処理済, trashed: ごみ箱, untrashed: 未処理と処理済)",
+            "enum": [
+              "active",
+              "archived",
+              "trashed",
+              "untrashed"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "取得する請求書の請求日の開始日を指定します。(書式: YYYY/MM/DD)",
+            "format": "date",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "取得する請求書の請求日の終了日を指定します。(書式: YYYY/MM/DD)",
+            "format": "date",
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "取得する請求書のお支払い期限の開始日を指定します。(書式: YYYY/MM/DD)",
+            "format": "date",
+            "in": "query",
+            "name": "due_date_from",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "取得する請求書のお支払い期限の終了日を指定します。(書式: YYYY/MM/DD)",
+            "format": "date",
+            "in": "query",
+            "name": "due_date_to",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "取得する請求書の更新日の開始日を指定します。(書式: YYYY/MM/DD)",
+            "format": "date",
+            "in": "query",
+            "name": "updated_at_from",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "取得する請求書の更新日の終了日を指定します。(書式: YYYY/MM/DD)",
+            "format": "date",
+            "in": "query",
+            "name": "updated_at_to",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "入金ステータスに応じた請求書のみを取得したい場合に指定します。(paid: 入金済, unpaid: 未入金)",
+            "enum": [
+              "unpaid",
+              "paid"
+            ],
+            "in": "query",
+            "name": "payment_status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "請求ステータスに応じた請求書のみを取得したい場合に指定します。(submitted: 請求済, unsubmitted: 未請求)",
+            "enum": [
+              "unsubmitted",
+              "submitted"
+            ],
+            "in": "query",
+            "name": "invoice_status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "取引先のID",
+            "format": "int32",
+            "in": "query",
+            "name": "contact_group_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "請求書番号・取引先名・件名・社内メモに含まれるキーワードで検索したい場合に指定します。",
+            "in": "query",
+            "name": "condition",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "desc",
+            "description": "並び順を指定します。(asc: 昇順, desc: 降順)",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "in": "query",
+            "name": "order",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "created_at",
+            "description": "並び順の基準となる項目を指定します。(created_at: 作成日, updated_at: 更新日, issue_date: 発行日, payment_due_on: お支払い期限)",
+            "enum": [
+              "created_at",
+              "updated_at",
+              "issue_date",
+              "payment_due_on"
+            ],
+            "in": "query",
+            "name": "order_by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 1,
+            "description": "ページを指定します",
+            "format": "int32",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 25,
+            "description": "1ページあたりの上限件数を指定します。(範囲: 1~100)",
+            "format": "int32",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "per_page",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "請求書一覧を取得します",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ApiEntity_Invoice"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "請求書一覧を取得します",
+        "tags": [
+          "invoices"
+        ]
+      }
+    },
+    "/user/me": {
+      "get": {
+        "description": "\n\n必要なscope: readまたは write\n\n",
+        "operationId": "getUserMe",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "自分のユーザ情報を取得します",
+            "schema": {
+              "$ref": "#/definitions/ApiEntity_User"
+            }
+          }
+        },
+        "summary": "自分のユーザ情報を取得します",
+        "tags": [
+          "user"
+        ]
+      }
+    }
+  },
+  "produces": [
+    "application/json"
+  ],
+  "swagger": "2.0",
+  "tags": [
+    {
+      "description": "Operations about contacts",
+      "name": "contacts"
+    },
+    {
+      "description": "Operations about contacts",
+      "name": "contact"
+    },
+    {
+      "description": "Operations about contact_groups",
+      "name": "contact_groups"
+    },
+    {
+      "description": "Operations about contact_groups",
+      "name": "contact_group"
+    },
+    {
+      "description": "Operations about invoices",
+      "name": "invoices"
+    },
+    {
+      "description": "Operations about invoices",
+      "name": "invoice"
+    },
+    {
+      "description": "Operations about estimates",
+      "name": "estimates"
+    },
+    {
+      "description": "Operations about estimates",
+      "name": "estimate"
+    },
+    {
+      "description": "Operations about delivery_slips",
+      "name": "delivery_slips"
+    },
+    {
+      "description": "Operations about delivery_slips",
+      "name": "delivery_slip"
+    },
+    {
+      "description": "Operations about users",
+      "name": "user"
+    },
+    {
+      "description": "Operations about dealing_items",
+      "name": "dealing_items"
+    },
+    {
+      "description": "Operations about dealing_items",
+      "name": "dealing_item"
+    }
+  ]
+}

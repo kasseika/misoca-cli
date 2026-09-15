@@ -1,0 +1,6 @@
+/dist/
+/bin/
+*.pdf
+*.log
+.DS_Store
+credentials.json
