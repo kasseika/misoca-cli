@@ -1,11 +1,11 @@
 module github.com/mtane0412/misoca-cli
 
-go 1.26.5
+go 1.23.0
 
 require (
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/spf13/cobra v1.10.2
-	golang.org/x/oauth2 v0.37.0
+	golang.org/x/oauth2 v0.30.0
 )
 
 require (
