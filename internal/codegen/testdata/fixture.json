@@ -1,0 +1,99 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "ApiEntity_ContactGroup": {
+      "type": "object",
+      "description": "ApiEntity_ContactGroup model",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "取引先を識別する一意なID"
+        },
+        "recipient_name": {
+          "type": "string",
+          "description": "取引先名"
+        },
+        "bank_accounts": {
+          "type": "array",
+          "description": "銀行口座",
+          "items": {
+            "$ref": "#/definitions/ApiEntity_Invoice_BankAccount"
+          }
+        },
+        "mail_settings": {
+          "description": "メールの件名",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ApiEntity_ContactGroup_MailSettings"
+            }
+          ]
+        },
+        "tax_option": {
+          "type": "string",
+          "description": "消費税設定('USE_SENDER': 自社情報の設定,\n              'INCLUDE': 税込表示)"
+        }
+      }
+    },
+    "ApiEntity_ContactGroup_MailSettings": {
+      "type": "object",
+      "description": "ApiEntity_ContactGroup_MailSettings model",
+      "properties": {
+        "invoice": {
+          "type": "string",
+          "description": "メールの件名:請求書"
+        }
+      }
+    },
+    "ApiEntity_Invoice_BankAccount": {
+      "type": "object",
+      "description": "ApiEntity_Invoice_BankAccount model",
+      "properties": {
+        "detail": {
+          "type": "string",
+          "description": "口座詳細"
+        }
+      }
+    },
+    "ApiEntity_Invoice_InvoiceItem": {
+      "type": "object",
+      "description": "ApiEntity_Invoice_InvoiceItem model",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "品目名"
+        },
+        "unit_price": {
+          "type": "integer",
+          "format": "int32",
+          "description": "単価"
+        }
+      }
+    },
+    "postInvoice": {
+      "type": "object",
+      "description": "postInvoice model",
+      "properties": {
+        "contact_id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "取引先ID"
+        },
+        "items": {
+          "type": "array",
+          "description": "明細",
+          "items": {
+            "$ref": "#/definitions/ApiEntity_Invoice_InvoiceItem"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "タグ",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
