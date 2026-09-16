@@ -1,4 +1,4 @@
-module github.com/mtane0412/misoca-cli
+module github.com/kasseika/misoca-cli
 
 go 1.23.0
 

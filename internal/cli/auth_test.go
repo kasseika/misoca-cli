@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mtane0412/misoca-cli/internal/auth"
+	"github.com/kasseika/misoca-cli/internal/auth"
 )
 
 // newAuthTestApp は認証情報ファイルを一時ディレクトリに作るAppを生成します。

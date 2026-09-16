@@ -7,8 +7,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/mtane0412/misoca-cli/internal/misoca"
-	"github.com/mtane0412/misoca-cli/internal/output"
+	"github.com/kasseika/misoca-cli/internal/misoca"
+	"github.com/kasseika/misoca-cli/internal/output"
 )
 
 func contactGroupTable(groups []misoca.ContactGroup) *output.Table {

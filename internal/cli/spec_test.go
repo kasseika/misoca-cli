@@ -7,7 +7,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/mtane0412/misoca-cli/api"
+	"github.com/kasseika/misoca-cli/api"
 )
 
 // TestSpecCheck_NoDrift は、ライブの仕様書が埋め込み済みスナップショットと

@@ -13,8 +13,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/mtane0412/misoca-cli/internal/misoca"
-	"github.com/mtane0412/misoca-cli/internal/output"
+	"github.com/kasseika/misoca-cli/internal/misoca"
+	"github.com/kasseika/misoca-cli/internal/output"
 )
 
 // parseID はコマンドライン引数のID文字列を整数に変換します。

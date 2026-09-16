@@ -8,7 +8,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/mtane0412/misoca-cli/internal/misoca"
+	"github.com/kasseika/misoca-cli/internal/misoca"
 )
 
 // newTestApp は httptest サーバを指す偽クライアントを使う、テスト用のAppを生成します。

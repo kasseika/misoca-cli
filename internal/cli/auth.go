@@ -11,9 +11,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/mtane0412/misoca-cli/internal/auth"
-	"github.com/mtane0412/misoca-cli/internal/misoca"
-	"github.com/mtane0412/misoca-cli/internal/output"
+	"github.com/kasseika/misoca-cli/internal/auth"
+	"github.com/kasseika/misoca-cli/internal/misoca"
+	"github.com/kasseika/misoca-cli/internal/output"
 )
 
 func (a *App) newAuthCmd(flags *globalFlags) *cobra.Command {
