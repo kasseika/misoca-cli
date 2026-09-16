@@ -16,13 +16,24 @@ go install github.com/kasseika/misoca-cli/cmd/misoca@latest
 
 [Releases](https://github.com/kasseika/misoca-cli/releases) から
 お使いのOS・CPUアーキテクチャに合ったアーカイブ（例: macOSのApple
-Siliconなら `misoca_<version>_darwin_arm64.tar.gz`）をダウンロードし、
-展開した `misoca` バイナリをPATHの通ったディレクトリ（例: `/usr/local/bin`）
-に配置してください。
+Siliconなら `misoca_<version>_darwin_arm64.tar.gz`、Windows(64bit)なら
+`misoca_<version>_windows_amd64.zip`）をダウンロードし、展開した
+`misoca` バイナリをPATHの通ったディレクトリに配置してください。
+
+macOS / Linux:
 
 ```bash
 tar xzf misoca_<version>_darwin_arm64.tar.gz
 sudo mv misoca /usr/local/bin/
+misoca --version
+misoca --help
+```
+
+Windows:
+
+```powershell
+Expand-Archive misoca_<version>_windows_amd64.zip -DestinationPath .
+# 任意のPATHが通ったディレクトリ（例: %USERPROFILE%\bin）にmisoca.exeを配置してください
 misoca --version
 misoca --help
 ```
