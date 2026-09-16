@@ -15,7 +15,7 @@ builds:
       - amd64
       - arm64
     ldflags:
-      - -s -w -X main.version={{.Version}}
+      - -s -w -X github.com/mtane0412/misoca-cli/internal/cli.Version={{.Version}}
 
 archives:
   - id: misoca
@@ -39,5 +39,5 @@ changelog:
 
 release:
   github:
-    owner: mtane0412
+    owner: kasseika
     name: misoca-cli

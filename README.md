@@ -14,7 +14,7 @@ go install github.com/mtane0412/misoca-cli/cmd/misoca@latest
 
 ### GitHub Releasesのバイナリ（Goをインストールしていない方向け）
 
-[Releases](https://github.com/mtane0412/misoca-cli/releases) から
+[Releases](https://github.com/kasseika/misoca-cli/releases) から
 お使いのOS・CPUアーキテクチャに合ったアーカイブ（例: macOSのApple
 Siliconなら `misoca_<version>_darwin_arm64.tar.gz`）をダウンロードし、
 展開した `misoca` バイナリをPATHの通ったディレクトリ（例: `/usr/local/bin`）

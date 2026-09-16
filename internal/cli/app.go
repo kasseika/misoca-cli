@@ -120,6 +120,7 @@ func (a *App) buildRootCommand() *cobra.Command {
 	root := &cobra.Command{
 		Use:           "misoca",
 		Short:         "Misoca API v3 を操作するCLI",
+		Version:       Version,
 		SilenceUsage:  true,
 		SilenceErrors: true,
 	}
