@@ -23,6 +23,7 @@ Siliconなら `misoca_<version>_darwin_arm64.tar.gz`）をダウンロードし�
 ```bash
 tar xzf misoca_<version>_darwin_arm64.tar.gz
 sudo mv misoca /usr/local/bin/
+misoca --version
 misoca --help
 ```
 
