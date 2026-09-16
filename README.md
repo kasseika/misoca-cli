@@ -9,7 +9,7 @@ Claude Code などの CLI 経由でツールを扱うエージェントから、
 ### go install（開発者向け）
 
 ```bash
-go install github.com/mtane0412/misoca-cli/cmd/misoca@latest
+go install github.com/kasseika/misoca-cli/cmd/misoca@latest
 ```
 
 ### GitHub Releasesのバイナリ（Goをインストールしていない方向け）

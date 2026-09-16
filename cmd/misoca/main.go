@@ -7,7 +7,7 @@ package main
 import (
 	"os"
 
-	"github.com/mtane0412/misoca-cli/internal/cli"
+	"github.com/kasseika/misoca-cli/internal/cli"
 )
 
 func main() {

@@ -13,8 +13,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/mtane0412/misoca-cli/internal/auth"
-	"github.com/mtane0412/misoca-cli/internal/misoca"
+	"github.com/kasseika/misoca-cli/internal/auth"
+	"github.com/kasseika/misoca-cli/internal/misoca"
 )
 
 const (

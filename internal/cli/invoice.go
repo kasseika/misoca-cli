@@ -8,8 +8,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/mtane0412/misoca-cli/internal/misoca"
-	"github.com/mtane0412/misoca-cli/internal/output"
+	"github.com/kasseika/misoca-cli/internal/misoca"
+	"github.com/kasseika/misoca-cli/internal/output"
 )
 
 // invoiceStatusLabel は請求ステータス（0/1の整数）を日本語ラベルに変換します。

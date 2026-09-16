@@ -14,7 +14,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/mtane0412/misoca-cli/api"
+	"github.com/kasseika/misoca-cli/api"
 )
 
 // defaultSpecCheckURL はMisocaのライブSwagger仕様書のURLです。

@@ -14,8 +14,8 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/oauth2"
 
-	"github.com/mtane0412/misoca-cli/internal/auth"
-	"github.com/mtane0412/misoca-cli/internal/misoca"
+	"github.com/kasseika/misoca-cli/internal/auth"
+	"github.com/kasseika/misoca-cli/internal/misoca"
 )
 
 // App は misoca CLI の実行に必要な依存をまとめた構造体です。
